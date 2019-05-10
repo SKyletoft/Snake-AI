@@ -14,13 +14,13 @@ namespace Snake_AI {
         public (int X, int Y) head;
         public (int X, int Y) apple = (7, 7);
         public bool ended = false;
+        Random rnd = new Random(/*123*/);
         public bool playTurn ((int X, int Y) movement, bool respectRot) {
             if (respectRot) {
                 return playTurn(rotate(movement));
             } else {
                 return playTurn(movement);
             }
-            return false;
         }
         public bool playTurn ((int X, int Y) movement) {
             var tmp = new List<(int X, int Y)> { head };
@@ -40,7 +40,6 @@ namespace Snake_AI {
 
             if (head == apple) {
                 length++;
-                var rnd = new Random();
                 var test = apple;
                 do {
                     test = (X: rnd.Next(0, dimensions.width), Y: rnd.Next(0, dimensions.height));
@@ -101,12 +100,20 @@ namespace Snake_AI {
             return frame;
         }
         public Bitmap RenderSimple () {
-            Console.Clear();
             var frame = new Bitmap(dimensions.width, dimensions.height);
             for (var j = 0; j < dimensions.height; j++) {
                 for (var i = 0; i < dimensions.width; i++) {
                     frame.SetPixel(i, j, tail.IndexOf((i, j)) != -1 ? Color.Black : Color.White);
-                    Console.Write(tail.IndexOf((i, j)) != -1 ? ' ' : '█');
+                    if (head == (i, j)) {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                    } else if (tail.IndexOf((i, j)) != -1) {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                    } else if (apple == (i, j)) {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    } else {
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+                    Console.Write('█');
                 }
                 Console.WriteLine();
             }

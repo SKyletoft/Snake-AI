@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 
 namespace Snake_AI {
-    public class AI {
+    public partial class AI {
         public class Network {
             public Network () {
                 game.dimensions = (10, 10);
@@ -15,7 +15,7 @@ namespace Snake_AI {
             }
             public Snake game = new Snake();
             public double fitness = 0;
-            (int width, int height) dimensions;
+            (int width, int height) dimensions = (21, 21);
             double randomFactor = 0.05;
             List<(int X, int Y, int flip)> level1Nodes = new List<(int X, int Y, int flip)> { };
             List<(int level1Node, int flip)> level2Nodes = new List<(int level1Node, int flip)> { };
@@ -49,7 +49,7 @@ namespace Snake_AI {
                         }
                     }
                 }
-                return Array.IndexOf(values, Math.Max(Math.Max(values[0], values[1]) , values[2]));
+                return Array.IndexOf(values, Math.Max(Math.Max(values[0], values[1]), values[2]));
             }
             public double Evaluate () {
                 if (game.ended) {
@@ -60,9 +60,9 @@ namespace Snake_AI {
                         game.dimensions.width);
                     var distanceToApple = Math.Sqrt(
                         (game.head.X - game.apple.X) *
-                        (game.head.X - game.apple.X) +  
-                        (game.head.Y - game.apple.Y) *  
-                        (game.head.Y - game.apple.Y)    
+                        (game.head.X - game.apple.X) +
+                        (game.head.Y - game.apple.Y) *
+                        (game.head.Y - game.apple.Y)
                     );
                     return game.length + distanceToApple / hypotenuse;
                 }
@@ -87,38 +87,43 @@ namespace Snake_AI {
                 while (rnd.NextDouble() < randomFactor) {
                     newNetwork.level1Nodes.Add((rnd.Next() % dimensions.width, rnd.Next() % dimensions.height, (rnd.Next() % 2) == 0 ? -1 : 1));
                 }
-                while (rnd.NextDouble() < randomFactor) {
+                while (rnd.NextDouble() < randomFactor && newNetwork.level1Nodes.Count > 0) {
                     newNetwork.level2Nodes.Add((rnd.Next() % newNetwork.level1Nodes.Count, (rnd.Next() % 2) == 0 ? -1 : 1));
                 }
                 while (rnd.NextDouble() < randomFactor) {
                     var nodeLevel = rnd.Next() % 2;
-                    newNetwork.outputs[rnd.Next() % 3].Add(
-                        (
-                            nodeLevel + 1,
-                            nodeLevel == 0 ? rnd.Next() % newNetwork.level1Nodes.Count : rnd.Next() % newNetwork.level2Nodes.Count,
-                            (rnd.Next() % 2) == 0 ? -1 : 1
-                        )
-                    );
+                    if ((nodeLevel == 0 && newNetwork.level1Nodes.Count > 0) || (nodeLevel == 1) && newNetwork.level2Nodes.Count > 0) {
+                        newNetwork.outputs[rnd.Next() % 3].Add(
+                            (
+                                nodeLevel + 1,
+                                nodeLevel == 0 ? rnd.Next() % newNetwork.level1Nodes.Count : rnd.Next() % newNetwork.level2Nodes.Count,
+                                (rnd.Next() % 2) == 0 ? -1 : 1
+                            )
+                        );
+                    }
+
                 }
                 //Edit old ones
-                while (rnd.NextDouble() < randomFactor) {
+                while (rnd.NextDouble() < randomFactor && newNetwork.level1Nodes.Count > 0) {
                     newNetwork.level1Nodes[rnd.Next() % newNetwork.level1Nodes.Count] = (
                         rnd.Next() % dimensions.width,
                         rnd.Next() % dimensions.height,
                         (rnd.Next() % 2) == 0 ? -1 : 1
                     );
                 }
-                while (rnd.NextDouble() < randomFactor) {
-                    newNetwork.level2Nodes[rnd.Next() & newNetwork.level2Nodes.Count] = ((rnd.Next() % newNetwork.level1Nodes.Count, (rnd.Next() % 2) == 0 ? -1 : 1));
+                while (rnd.NextDouble() < randomFactor && newNetwork.level2Nodes.Count > 0) {
+                    newNetwork.level2Nodes[rnd.Next() % newNetwork.level2Nodes.Count] = ((rnd.Next() % newNetwork.level1Nodes.Count, (rnd.Next() % 2) == 0 ? -1 : 1));
                 }
                 while (rnd.NextDouble() < randomFactor) {
                     var nodeLevel = rnd.Next() % 2;
                     var output = rnd.Next() % 3;
-                    newNetwork.outputs[output][rnd.Next() % newNetwork.outputs[output].Count] = (
-                        nodeLevel + 1,
-                        nodeLevel == 0 ? rnd.Next() % newNetwork.level1Nodes.Count : rnd.Next() % newNetwork.level2Nodes.Count,
-                        (rnd.Next() % 2) == 0 ? -1 : 1
-                    );
+                    if (newNetwork.outputs[output].Count > 0) {
+                        newNetwork.outputs[output][rnd.Next() % newNetwork.outputs[output].Count] = (
+                            nodeLevel + 1,
+                            nodeLevel == 0 ? rnd.Next() % newNetwork.level1Nodes.Count : rnd.Next() % newNetwork.level2Nodes.Count,
+                            (rnd.Next() % 2) == 0 ? -1 : 1
+                        );
+                    }
                 }
 
                 return newNetwork;

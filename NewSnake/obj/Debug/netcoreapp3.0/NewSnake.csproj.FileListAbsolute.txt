@@ -1,0 +1,11 @@
+C:\Users\skyle\source\repos\Snake-AI\NewSnake\bin\Debug\netcoreapp3.0\NewSnake.exe
+C:\Users\skyle\source\repos\Snake-AI\NewSnake\bin\Debug\netcoreapp3.0\NewSnake.deps.json
+C:\Users\skyle\source\repos\Snake-AI\NewSnake\bin\Debug\netcoreapp3.0\NewSnake.runtimeconfig.json
+C:\Users\skyle\source\repos\Snake-AI\NewSnake\bin\Debug\netcoreapp3.0\NewSnake.runtimeconfig.dev.json
+C:\Users\skyle\source\repos\Snake-AI\NewSnake\bin\Debug\netcoreapp3.0\NewSnake.dll
+C:\Users\skyle\source\repos\Snake-AI\NewSnake\bin\Debug\netcoreapp3.0\NewSnake.pdb
+C:\Users\skyle\source\repos\Snake-AI\NewSnake\obj\Debug\netcoreapp3.0\NewSnake.AssemblyInfoInputs.cache
+C:\Users\skyle\source\repos\Snake-AI\NewSnake\obj\Debug\netcoreapp3.0\NewSnake.AssemblyInfo.cs
+C:\Users\skyle\source\repos\Snake-AI\NewSnake\obj\Debug\netcoreapp3.0\NewSnake.dll
+C:\Users\skyle\source\repos\Snake-AI\NewSnake\obj\Debug\netcoreapp3.0\NewSnake.pdb
+C:\Users\skyle\source\repos\Snake-AI\NewSnake\obj\Debug\netcoreapp3.0\NewSnake.csprojAssemblyReference.cache

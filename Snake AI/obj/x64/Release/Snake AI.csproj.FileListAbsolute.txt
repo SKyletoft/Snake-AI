@@ -1,0 +1,10 @@
+E:\Code\GIT\Snake-AI\Snake AI\bin\x64\Release\Snake AI.exe.config
+E:\Code\GIT\Snake-AI\Snake AI\bin\x64\Release\Snake AI.exe
+E:\Code\GIT\Snake-AI\Snake AI\bin\x64\Release\Snake AI.pdb
+E:\Code\GIT\Snake-AI\Snake AI\obj\x64\Release\Snake AI.csprojAssemblyReference.cache
+E:\Code\GIT\Snake-AI\Snake AI\obj\x64\Release\Snake_AI.Form1.resources
+E:\Code\GIT\Snake-AI\Snake AI\obj\x64\Release\Snake_AI.Manual.resources
+E:\Code\GIT\Snake-AI\Snake AI\obj\x64\Release\Snake_AI.Properties.Resources.resources
+E:\Code\GIT\Snake-AI\Snake AI\obj\x64\Release\Snake AI.csproj.GenerateResource.cache
+E:\Code\GIT\Snake-AI\Snake AI\obj\x64\Release\Snake AI.exe
+E:\Code\GIT\Snake-AI\Snake AI\obj\x64\Release\Snake AI.pdb

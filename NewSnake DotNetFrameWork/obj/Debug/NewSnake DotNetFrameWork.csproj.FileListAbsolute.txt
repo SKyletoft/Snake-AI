@@ -1,0 +1,6 @@
+E:\Code\GIT\Snake-AI\NewSnake DotNetFrameWork\obj\Debug\NewSnake DotNetFrameWork.csprojAssemblyReference.cache
+E:\Code\GIT\Snake-AI\NewSnake DotNetFrameWork\bin\Debug\NewSnake.exe.config
+E:\Code\GIT\Snake-AI\NewSnake DotNetFrameWork\bin\Debug\NewSnake.exe
+E:\Code\GIT\Snake-AI\NewSnake DotNetFrameWork\bin\Debug\NewSnake.pdb
+E:\Code\GIT\Snake-AI\NewSnake DotNetFrameWork\obj\Debug\NewSnake.exe
+E:\Code\GIT\Snake-AI\NewSnake DotNetFrameWork\obj\Debug\NewSnake.pdb

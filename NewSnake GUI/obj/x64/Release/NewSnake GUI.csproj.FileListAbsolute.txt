@@ -1,0 +1,13 @@
+E:\Code\GIT\Snake-AI\NewSnake GUI\bin\x64\Release\NewSnake GUI.exe.config
+E:\Code\GIT\Snake-AI\NewSnake GUI\bin\x64\Release\NewSnake GUI.exe
+E:\Code\GIT\Snake-AI\NewSnake GUI\bin\x64\Release\NewSnake GUI.pdb
+E:\Code\GIT\Snake-AI\NewSnake GUI\bin\x64\Release\NewSnake.exe
+E:\Code\GIT\Snake-AI\NewSnake GUI\bin\x64\Release\NewSnake.pdb
+E:\Code\GIT\Snake-AI\NewSnake GUI\bin\x64\Release\NewSnake.exe.config
+E:\Code\GIT\Snake-AI\NewSnake GUI\obj\x64\Release\NewSnake GUI.csprojAssemblyReference.cache
+E:\Code\GIT\Snake-AI\NewSnake GUI\obj\x64\Release\NewSnake_GUI.Form1.resources
+E:\Code\GIT\Snake-AI\NewSnake GUI\obj\x64\Release\NewSnake_GUI.Properties.Resources.resources
+E:\Code\GIT\Snake-AI\NewSnake GUI\obj\x64\Release\NewSnake GUI.csproj.GenerateResource.cache
+E:\Code\GIT\Snake-AI\NewSnake GUI\obj\x64\Release\NewSnake GUI.csproj.CopyComplete
+E:\Code\GIT\Snake-AI\NewSnake GUI\obj\x64\Release\NewSnake GUI.exe
+E:\Code\GIT\Snake-AI\NewSnake GUI\obj\x64\Release\NewSnake GUI.pdb

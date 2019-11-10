@@ -15,7 +15,6 @@ E:\Code\GIT\Snake-AI\Snake AI\obj\Debug\Snake AI.csprojAssemblyReference.cache
 E:\Code\GIT\Snake-AI\Snake AI\obj\Debug\Snake_AI.Form1.resources
 E:\Code\GIT\Snake-AI\Snake AI\obj\Debug\Snake_AI.Properties.Resources.resources
 E:\Code\GIT\Snake-AI\Snake AI\obj\Debug\Snake AI.csproj.GenerateResource.cache
-E:\Code\GIT\Snake-AI\Snake AI\obj\Debug\Snake AI.csproj.CoreCompileInputs.cache
 E:\Code\GIT\Snake-AI\Snake AI\obj\Debug\Snake AI.exe
 E:\Code\GIT\Snake-AI\Snake AI\obj\Debug\Snake AI.pdb
 E:\Code\GIT\Snake-AI\Snake AI\obj\Debug\Snake_AI.Manual.resources

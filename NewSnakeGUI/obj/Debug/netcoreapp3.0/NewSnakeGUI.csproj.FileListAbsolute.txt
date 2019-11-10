@@ -1,0 +1,11 @@
+E:\Code\GIT\Snake-AI\NewSnakeGUI\bin\Debug\netcoreapp3.0\NewSnakeGUI.exe
+E:\Code\GIT\Snake-AI\NewSnakeGUI\bin\Debug\netcoreapp3.0\NewSnakeGUI.deps.json
+E:\Code\GIT\Snake-AI\NewSnakeGUI\bin\Debug\netcoreapp3.0\NewSnakeGUI.runtimeconfig.json
+E:\Code\GIT\Snake-AI\NewSnakeGUI\bin\Debug\netcoreapp3.0\NewSnakeGUI.runtimeconfig.dev.json
+E:\Code\GIT\Snake-AI\NewSnakeGUI\bin\Debug\netcoreapp3.0\NewSnakeGUI.dll
+E:\Code\GIT\Snake-AI\NewSnakeGUI\bin\Debug\netcoreapp3.0\NewSnakeGUI.pdb
+E:\Code\GIT\Snake-AI\NewSnakeGUI\obj\Debug\netcoreapp3.0\NewSnakeGUI.csprojAssemblyReference.cache
+E:\Code\GIT\Snake-AI\NewSnakeGUI\obj\Debug\netcoreapp3.0\NewSnakeGUI.AssemblyInfoInputs.cache
+E:\Code\GIT\Snake-AI\NewSnakeGUI\obj\Debug\netcoreapp3.0\NewSnakeGUI.AssemblyInfo.cs
+E:\Code\GIT\Snake-AI\NewSnakeGUI\obj\Debug\netcoreapp3.0\NewSnakeGUI.dll
+E:\Code\GIT\Snake-AI\NewSnakeGUI\obj\Debug\netcoreapp3.0\NewSnakeGUI.pdb

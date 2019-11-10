@@ -1,0 +1,11 @@
+E:\Code\GIT\Snake-AI\NewSnake\bin\x64\Release\netcoreapp3.0\NewSnake DotNetCore.exe
+E:\Code\GIT\Snake-AI\NewSnake\bin\x64\Release\netcoreapp3.0\NewSnake DotNetCore.deps.json
+E:\Code\GIT\Snake-AI\NewSnake\bin\x64\Release\netcoreapp3.0\NewSnake DotNetCore.runtimeconfig.json
+E:\Code\GIT\Snake-AI\NewSnake\bin\x64\Release\netcoreapp3.0\NewSnake DotNetCore.runtimeconfig.dev.json
+E:\Code\GIT\Snake-AI\NewSnake\bin\x64\Release\netcoreapp3.0\NewSnake DotNetCore.dll
+E:\Code\GIT\Snake-AI\NewSnake\bin\x64\Release\netcoreapp3.0\NewSnake DotNetCore.pdb
+E:\Code\GIT\Snake-AI\NewSnake\obj\x64\Release\netcoreapp3.0\NewSnake DotNetCore.csprojAssemblyReference.cache
+E:\Code\GIT\Snake-AI\NewSnake\obj\x64\Release\netcoreapp3.0\NewSnake DotNetCore.AssemblyInfoInputs.cache
+E:\Code\GIT\Snake-AI\NewSnake\obj\x64\Release\netcoreapp3.0\NewSnake DotNetCore.AssemblyInfo.cs
+E:\Code\GIT\Snake-AI\NewSnake\obj\x64\Release\netcoreapp3.0\NewSnake DotNetCore.dll
+E:\Code\GIT\Snake-AI\NewSnake\obj\x64\Release\netcoreapp3.0\NewSnake DotNetCore.pdb

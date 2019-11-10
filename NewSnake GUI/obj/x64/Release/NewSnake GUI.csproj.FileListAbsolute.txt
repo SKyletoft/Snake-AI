@@ -11,3 +11,7 @@ E:\Code\GIT\Snake-AI\NewSnake GUI\obj\x64\Release\NewSnake GUI.csproj.GenerateRe
 E:\Code\GIT\Snake-AI\NewSnake GUI\obj\x64\Release\NewSnake GUI.csproj.CopyComplete
 E:\Code\GIT\Snake-AI\NewSnake GUI\obj\x64\Release\NewSnake GUI.exe
 E:\Code\GIT\Snake-AI\NewSnake GUI\obj\x64\Release\NewSnake GUI.pdb
+E:\Code\GIT\Snake-AI\NewSnake GUI\bin\x64\Release\NewSnake GUI.exe.manifest
+E:\Code\GIT\Snake-AI\NewSnake GUI\bin\x64\Release\NewSnake GUI.application
+E:\Code\GIT\Snake-AI\NewSnake GUI\obj\x64\Release\NewSnake GUI.exe.manifest
+E:\Code\GIT\Snake-AI\NewSnake GUI\obj\x64\Release\NewSnake GUI.application

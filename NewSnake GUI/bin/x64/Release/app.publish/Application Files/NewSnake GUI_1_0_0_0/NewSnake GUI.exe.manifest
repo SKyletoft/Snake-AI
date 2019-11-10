@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="NewSnake GUI.exe" version="1.0.0.0" publicKeyToken="6ad86ffa379832ba" language="neutral" processorArchitecture="amd64" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="NewSnake GUI" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
+    <commandLine file="NewSnake GUI.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NewSnake GUI.exe" size="14800">
+      <assemblyIdentity name="NewSnake GUI" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>yemWBoK1xLfoNVomuU/FXwp5efEnfSVBUH7Vno1PzIk=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NewSnake.exe" size="12800">
+      <assemblyIdentity name="NewSnake" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>rAn61HxjCcH3YCkbU6mjT5nNdYpwOi0SGOYAX4/M1+g=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="NewSnake GUI.exe.config" size="187">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>+CM46OnHRrXZXNLMx7+U3V3iubiYL//d8hGOR13lDhU=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=SKYLETOFT_II\skyle" issuerKeyHash="14634e0956e777901bb4d8c253d4376a4740f3f1" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>7ziQTDWkI3A2jK2xu5845t1FvXGArvggDijPJuXxZE0=</DigestValue></Reference></SignedInfo><SignatureValue>utPwrBviODUbfTS3I7D7VGd34HJOHBPjW+Qe5d/39ENMjw74X//xe0RwZ+6AtYxOFPDTHKisFYpZk/Sc8m7qxjFVj5av6u7hwimtLqKWufDICKRgmNFJk+RclfIap4draImn+4yhpvGEHvStfcNamkFnLOBMwIAXGaYODCW2/TQ=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>zCblo3DTg+o3AXGWE2fw4lmoG6YbMshlV5BMFa3VYyxFDOez/rehZY9dZpvLZgVuCySCKxXD8U5nASWXVIcB9w6R30ExZu3GzoW03Z+MAV1BnS6TJ9Tm/0a/tawwKfbu3vArgEaig64ZmMbk1mU6/AjuBU9EiRUK1WzOBqHJZ2E=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="4d64f1e526cf280e20f8ae8071bd45dde6389fbbb1ad8c367023a4354c9038ef" Description="" Url=""><as:assemblyIdentity name="NewSnake GUI.exe" version="1.0.0.0" publicKeyToken="6ad86ffa379832ba" language="neutral" processorArchitecture="amd64" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=SKYLETOFT_II\skyle</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>RS0BiGhihqJmKs2ugNK278VHU5d0GYlxdg3yW0jBJBA=</DigestValue></Reference></SignedInfo><SignatureValue>QymVa833TYpz54vD9bpSP8eL4zdEV3ZDpNrb7dPJb5S67fUWznGB6HjNFI6Op/3g1TdZpU1y+ioM2efB2GKrpmSXujpN/ReBbvL42Ru1McFTJX4tvH+98hWBDOcggOjfdqCxYuMQ9LeDa1NpK3rOJ1dIrC+NsG3/7aBpDU+11uI=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>zCblo3DTg+o3AXGWE2fw4lmoG6YbMshlV5BMFa3VYyxFDOez/rehZY9dZpvLZgVuCySCKxXD8U5nASWXVIcB9w6R30ExZu3GzoW03Z+MAV1BnS6TJ9Tm/0a/tawwKfbu3vArgEaig64ZmMbk1mU6/AjuBU9EiRUK1WzOBqHJZ2E=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB4TCCAUqgAwIBAgIQGM7VKXciWLhFi5N43tV4azANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDHiQAUwBLAFkATABFAFQATwBGAFQAXwBJAEkAXABzAGsAeQBsAGUwHhcNMTkxMTEwMjE0MzA3WhcNMjAxMTEwMDM0MzA3WjAvMS0wKwYDVQQDHiQAUwBLAFkATABFAFQATwBGAFQAXwBJAEkAXABzAGsAeQBsAGUwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMwm5aNw04PqNwFxlhNn8OJZqBumGzLIZVeQTBWt1WMsRQzns/63oWWPXWaby2YFbgskgisVw/FOZwEll1SHAfcOkd9BMWbtxs6FtN2fjAFdQZ0ukyfU5v9Gv7WsMCn27t7wK4BGooOuGZjG5NZlOvwI7gVPRIkVCtVszgahyWdhAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAD93+7e8zXLi2D16b3xVAN3/vVXqsujAZjKIMz0J0yFGpp40xouDz42pyYYnxHGl+Zoor1qpiB4l9rBmEOzC6kyMy3tSkJpN5ApId/01wrfp73NsK1uhuRWAUGyZ/gy5Dgp175b3N+rjdG7cPbLdvCnhRJhXKStpdi3zkaJGeIFY=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

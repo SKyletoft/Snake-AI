@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace NewSnake {
     public class NeuralNetwork {
 
-        static Random rnd = new Random();
+        static Random rnd = new Random(DateTime.Now.Millisecond + DateTime.Now.Second * 1000 + DateTime.Now.Minute * 60000);
         static bool flag = false;
 
         int[] rowSizes;
@@ -43,13 +43,19 @@ namespace NewSnake {
         }
         public static NeuralNetwork NewFromManual () {
             var newNetwork = new NeuralNetwork();
-            newNetwork.rowSizes = new[] { 1, 3 };
+            newNetwork.rowSizes = new[] { 5, 3 };
             newNetwork.weights = new (double k, double m)[][][] {
                 null,
                 new (double k, double m)[][] {
-                    new (double k, double m)[] {(-1.0, 0.0) },
-                    new (double k, double m)[] {(0, 0.1) },
-                    new (double k, double m)[] {(1.0, 0.0) }
+                    new (double k, double m)[] { //LEFT
+                        (1.1, 0.0), (0.0, 0.0), (0.0, 0.0), (-2.0, 0.0), (0.0, 0.0)
+                    },
+                    new (double k, double m)[] { //FRONT
+                        (0.0, 1.0), (0.0, 0.0), (-2.0, 0.0), (0.0, 0.0), (0.0, 0.0)
+                    },
+                    new (double k, double m)[] { //RIGHT
+                        (-1.1, 0.0), (0.0, 0.0), (0.0, 0.0), (0.0, 0.0), (-2.0, 0.0)
+                    }
                 }
             };
             return newNetwork;
@@ -72,7 +78,7 @@ namespace NewSnake {
                     }
                 }
             }
-            newNetwork.CentreNetwork();
+            //newNetwork.CentreNetwork();
 
             return newNetwork;
         }
@@ -103,6 +109,7 @@ namespace NewSnake {
         public double PlaySnakeOLD ((int width, int height) size, bool draw) {
             var game = new Game(size.width, size.height, 0);
             var dir = -1;
+            var res = 2;
             do {
                 if (draw) {
                     game.DrawToConsole(false);
@@ -133,24 +140,27 @@ namespace NewSnake {
                     game.Head.y - size.height
                 };
                 dir = Evaluate(inputs);
-            } while (game.PlayTurn(Direction.DirectionFromIndex(dir)));
-            return game.Score;
+                res = game.PlayTurn(Direction.DirectionFromIndex(dir));
+            } while (res == 2);
+            return game.Score * res;
         }
         public double PlaySnake ((int width, int height) size, bool draw, int seed) {
             var game = new Game(size.width, size.height, seed);
             var dir = 0;
+            var res = 0;
             do {
                 if (draw) {
                     game.DrawToConsole(false);
                 }
-            } while (PlayRoundOfSnake(ref game, ref dir));
-            return game.Score;
+                res = PlayRoundOfSnake(ref game, ref dir);
+            } while (res == 2);
+            return game.Score * res;
         }
-        public bool PlayRoundOfSnake (ref Game game, ref int dir) {
+        public int PlayRoundOfSnake (ref Game game, ref int dir) {
             var tail = game.Tail;
             var currentDirection = Direction.GetDirection((game.Head.x - tail[tail.Length - 1].x, game.Head.y - tail[tail.Length - 1].y));
             var appleDiff = (x: (game.Head.x - game.Apple.x), y: (game.Head.y - game.Apple.y));
-            appleDiff = Direction.TransformDirection(appleDiff, currentDirection);
+            appleDiff = Direction.TransformDirection(appleDiff, 4 - currentDirection);
 
             var frontCoords = (
                 game.Head.x + Direction.DirectionFromIndex(currentDirection).x,
@@ -165,11 +175,12 @@ namespace NewSnake {
                 game.Head.y + Direction.DirectionFromIndex(currentDirection - 1).y
             );
             var turn = Evaluate(new double[] {
-                    Math.Atan(appleDiff.y / (double) appleDiff.x),
-                    Array.IndexOf(tail, frontCoords) != -1 ? 1 : 0,
-                    Array.IndexOf(tail, leftCoords) != -1 ? 1 : 0,
-                    Array.IndexOf(tail, rightCoords) != -1 ? 1 : 0
-                }) - 1;
+                appleDiff.x,
+                appleDiff.y,
+                Array.IndexOf(tail, frontCoords) != -1 ? 1 : 0,
+                Array.IndexOf(tail, leftCoords) != -1 ? 1 : 0,
+                Array.IndexOf(tail, rightCoords) != -1 ? 1 : 0
+            }) - 1;
             dir += turn;
             return game.PlayTurn(Direction.DirectionFromIndex(dir));
         }
@@ -210,7 +221,7 @@ namespace NewSnake {
                 weightSum += weights[i].k;
             }
             if (weightSum != 0) {
-                sum /= weightSum;
+                //sum /= weightSum;
             }
             return sum;
         }
@@ -218,22 +229,26 @@ namespace NewSnake {
         public (NeuralNetwork, double) NextGeneration ((int width, int height) boardSize, int generationSize, double randomness, double changeRate, int gen) {
             var newGen = new NeuralNetwork[generationSize];
             var scores = new double[generationSize];
-            var games = 10;
+            var games = 1000;
             var thisScore = 0.0;
             for (var j = 0; j < games; j++) {
-                thisScore += PlaySnake(boardSize, false, j * j);
+                thisScore += PlaySnake(boardSize, false, j);
             }
             thisScore /= games;
-            Parallel.For(0, newGen.Length, (i) => {
-                //for (var i = 0; i < newGen.Length - 1; i++) {
+            newGen[0] = this;
+            scores[0] = thisScore;
+            var options = new ParallelOptions();
+            options.MaxDegreeOfParallelism = System.Environment.ProcessorCount - 1;
+            Parallel.For(1, newGen.Length, options, (i) => {
+                //for (var i = 1; i < newGen.Length - 1; i++) {
                 var draw = false;
                 if (i == 0 && flag) {
                     draw = true;
                 }
-                newGen[i] = this.GenerateKid(randomness, changeRate);
+                newGen[i] = GenerateKid(randomness, changeRate);
                 var scoreSum = 0.0;
                 for (var j = 0; j < games; j++) {
-                    scoreSum += newGen[i].PlaySnake(boardSize, draw, j * j);
+                    scoreSum += newGen[i].PlaySnake(boardSize, draw, j);
                 }
                 scores[i] = scoreSum / games;
             });

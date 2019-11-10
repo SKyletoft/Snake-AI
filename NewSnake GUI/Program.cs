@@ -15,7 +15,9 @@ namespace NewSnake_GUI {
             Application.SetCompatibleTextRenderingDefault(false);
             var form = new Form1();
             Application.Run(form);
-            form.workerThread.Abort();
+            form.workerThread1.Abort();
+            form.workerThread2.Abort();
+            form.workerThread3.Abort();
         }
     }
 }

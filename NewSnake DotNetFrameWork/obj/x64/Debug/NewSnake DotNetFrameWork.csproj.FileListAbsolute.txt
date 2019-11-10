@@ -3,3 +3,4 @@ E:\Code\GIT\Snake-AI\NewSnake DotNetFrameWork\bin\x64\Debug\NewSnake.exe
 E:\Code\GIT\Snake-AI\NewSnake DotNetFrameWork\bin\x64\Debug\NewSnake.pdb
 E:\Code\GIT\Snake-AI\NewSnake DotNetFrameWork\obj\x64\Debug\NewSnake.exe
 E:\Code\GIT\Snake-AI\NewSnake DotNetFrameWork\obj\x64\Debug\NewSnake.pdb
+E:\Code\GIT\Snake-AI\NewSnake DotNetFrameWork\obj\x64\Debug\NewSnake DotNetFrameWork.csprojAssemblyReference.cache

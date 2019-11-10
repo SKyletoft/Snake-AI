@@ -15,11 +15,11 @@ namespace NewSnake {
         public double Score {
             get {
                 return //points scores plus how close it got to the next apple
-                    length +
+                    length;/* +
                     1 - ((
                         Math.Pow(head.x - apple.x, 2) +     
                         Math.Pow(head.y - apple.y, 2)    
-                    ) / (size.width * size.height));
+                    ) / (size.width * size.height));*/
             }    
         }
         public (int width, int height) Size {
@@ -47,16 +47,16 @@ namespace NewSnake {
             size = (width, height);
             length = 2;
             head = (width / 2, height / 2);
-            tail.Enqueue((head.x, head.y + 1));
             tail.Enqueue((head.x, head.y + 2));
+            tail.Enqueue((head.x, head.y + 1));
             //apple = (head.x, head.y - 2);
             rnd = new Random(seed);
             apple = NewApple();
         }
 
-        public bool PlayTurn ((int x, int y) dir) {
-            if (turns > 200) {
-                return false;
+        public int PlayTurn ((int x, int y) dir) {
+            if (turns > length * 20) {
+                return 0;
             }
             turns++;
 
@@ -77,16 +77,16 @@ namespace NewSnake {
                 //Console.Clear();
                 //Console.WriteLine("Hit wall");
                 //hit wall
-                return false;
+                return 1;
             }
             if (tail.Contains(head) && !hitException) {
                 //Console.Clear();
                 //Console.WriteLine("Hit self");
                 //hit itself
-                return false;
+                return 1;
             }
 
-            return true;
+            return 2;
         }
 
         public void DrawToConsole (bool clear) {

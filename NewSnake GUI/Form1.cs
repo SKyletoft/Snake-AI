@@ -12,9 +12,9 @@ using NewSnake;
 
 namespace NewSnake_GUI {
     public partial class Form1 : Form {
-        List<(NeuralNetwork, double)> oldWinnersRan = new List<(NeuralNetwork, double)>();
-        List<(NeuralNetwork, double)> oldWinnersZero = new List<(NeuralNetwork, double)>();
-        List<(NeuralNetwork, double)> oldWinnersMan = new List<(NeuralNetwork, double)>();
+        List<(NeuralNetwork, double, TimeSpan)> oldWinnersRan = new List<(NeuralNetwork, double, TimeSpan)>();
+        List<(NeuralNetwork, double, TimeSpan)> oldWinnersZero = new List<(NeuralNetwork, double, TimeSpan)>();
+        List<(NeuralNetwork, double, TimeSpan)> oldWinnersMan = new List<(NeuralNetwork, double, TimeSpan)>();
         NeuralNetwork currentlyShowing;
         bool runningAGame = false;
         Game game;
@@ -22,12 +22,13 @@ namespace NewSnake_GUI {
         public Thread workerThread1;
         public Thread workerThread2;
         public Thread workerThread3;
+        DateTime start = DateTime.Now;
         public Form1 () {
             InitializeComponent();
             //lastWinner.CentreNetwork();
-            oldWinnersRan.Add((NeuralNetwork.NewToRandom(new[] { 5, 7, 3}), 0));
-            oldWinnersZero.Add((NeuralNetwork.NewToZero(new[] { 5, 7, 3}), 0));
-            oldWinnersMan.Add((NeuralNetwork.NewFromManual(), 0));
+            oldWinnersRan.Add((NeuralNetwork.NewToRandom(new[] { 5, 3}), 0, new TimeSpan(0,0,0)));
+            oldWinnersZero.Add((NeuralNetwork.NewToZero(new[] { 5, 3}), 0, new TimeSpan(0, 0, 0)));
+            oldWinnersMan.Add((NeuralNetwork.NewFromManual(), 0, new TimeSpan(0, 0, 0)));
             
             workerThread1 = new Thread(w1);
             workerThread1.Start();
@@ -48,14 +49,14 @@ namespace NewSnake_GUI {
         public void w3 () {
             worker(ref oldWinnersMan);
         }
-        public void worker (ref List<(NeuralNetwork, double)> oldWinners) {
+        public void worker (ref List<(NeuralNetwork, double, TimeSpan)> oldWinners) {
             var lastWinner = oldWinners[oldWinners.Count - 1].Item1;
             var generation = 0;
             var score = 0.0;
             while (true) {
                 (lastWinner, score) = lastWinner.NextGeneration((15, 15), 1500, 0.05, 1, generation);
                 if (lastWinner != oldWinners[oldWinners.Count - 1].Item1 || score != oldWinners[oldWinners.Count - 1].Item2) {
-                    oldWinners.Add((lastWinner, score));
+                    oldWinners.Add((lastWinner, score, DateTime.Now - start));
                 } else {
                     lastWinner = oldWinners[oldWinners.Count - 1].Item1;
                 }
@@ -65,13 +66,13 @@ namespace NewSnake_GUI {
 
         private void timer1_Tick (object sender, EventArgs e) {
             for (var i = listBox1.Items.Count; i < oldWinnersRan.Count; i++) {
-                listBox1.Items.Add(String.Format("Generation {0:00}, {1:00.00000}, {2:00.00}", i, oldWinnersRan[i].Item2, oldWinnersRan[i].Item1.PlaySnake((15, 15), false, 0)));
+                listBox1.Items.Add(String.Format("Generation {0:00}, {1:00.000}, {2:00}, {3}", i, oldWinnersRan[i].Item2, oldWinnersRan[i].Item1.PlaySnake((15, 15), false, 0), oldWinnersRan[i].Item3));
             }
             for (var i = listBox2.Items.Count; i < oldWinnersZero.Count; i++) {
-                listBox2.Items.Add(String.Format("Generation {0:00}, {1:00.00000}, {2:00.00}", i, oldWinnersZero[i].Item2, oldWinnersZero[i].Item1.PlaySnake((15, 15), false, 0)));
+                listBox2.Items.Add(String.Format("Generation {0:00}, {1:00.000}, {2:00}, {3}", i, oldWinnersZero[i].Item2, oldWinnersZero[i].Item1.PlaySnake((15, 15), false, 0), oldWinnersZero[i].Item3));
             }
             for (var i = listBox3.Items.Count; i < oldWinnersMan.Count; i++) {
-                listBox3.Items.Add(String.Format("Generation {0:00}, {1:00.00000}, {2:00.00}", i, oldWinnersMan[i].Item2, oldWinnersMan[i].Item1.PlaySnake((15, 15), false, 0)));
+                listBox3.Items.Add(String.Format("Generation {0:00}, {1:00.000}, {2:00}, {3}", i, oldWinnersMan[i].Item2, oldWinnersMan[i].Item1.PlaySnake((15, 15), false, 0), oldWinnersMan[i].Item3));
             }
         }
 

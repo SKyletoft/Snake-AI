@@ -49,19 +49,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>dLymIa4zsYx+ea4z5rKTiRCDKEiZvx0j2EDeH5w6Afw=</dsig:DigestValue>
+        <dsig:DigestValue>6oeaMoPJO+4nKwe8cmQ7JwtDnNG3BeNDLCz98aBg/0w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NewSnake.exe" size="13312">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NewSnake.exe" size="14336">
       <assemblyIdentity name="NewSnake" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+kieH6/OJkg0ZrXkh5uI0a7B3bc0GAoDBy7UDuPsXFI=</dsig:DigestValue>
+        <dsig:DigestValue>VP+wgJ181oQRfRXvk/gc18FI4aBxoS9y6wKdtwK88Rg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -26,16 +26,16 @@ namespace NewSnake_GUI {
         public Form1 () {
             InitializeComponent();
             //lastWinner.CentreNetwork();
-            oldWinnersRan.Add((NeuralNetwork.NewToRandom(new[] { 5, 3}), 0, new TimeSpan(0,0,0)));
-            oldWinnersZero.Add((NeuralNetwork.NewToZero(new[] { 5, 3}), 0, new TimeSpan(0, 0, 0)));
+            oldWinnersRan.Add((NeuralNetwork.NewToRandom(new[] { 904, 3}), 0, new TimeSpan(0,0,0)));
+            oldWinnersZero.Add((NeuralNetwork.NewToZero(new[] { 904, 3}), 0, new TimeSpan(0, 0, 0)));
             oldWinnersMan.Add((NeuralNetwork.NewFromManual(), 0, new TimeSpan(0, 0, 0)));
             
             workerThread1 = new Thread(w1);
-            workerThread1.Start();
+            //workerThread1.Start();
             workerThread2 = new Thread(w2);
             workerThread2.Start();
             workerThread3 = new Thread(w3);
-            workerThread3.Start();
+            //workerThread3.Start();
             
             
 
@@ -55,24 +55,24 @@ namespace NewSnake_GUI {
             var score = 0.0;
             while (true) {
                 (lastWinner, score) = lastWinner.NextGeneration((15, 15), 1500, 0.05, 1, generation);
-                if (lastWinner != oldWinners[oldWinners.Count - 1].Item1 || score != oldWinners[oldWinners.Count - 1].Item2) {
+                //if (lastWinner != oldWinners[oldWinners.Count - 1].Item1 || score != oldWinners[oldWinners.Count - 1].Item2) {
                     oldWinners.Add((lastWinner, score, DateTime.Now - start));
-                } else {
-                    lastWinner = oldWinners[oldWinners.Count - 1].Item1;
-                }
+                //} else {
+                //    lastWinner = oldWinners[oldWinners.Count - 1].Item1;
+                //}
                 generation++;
             }
         }
 
         private void timer1_Tick (object sender, EventArgs e) {
             for (var i = listBox1.Items.Count; i < oldWinnersRan.Count; i++) {
-                listBox1.Items.Add(String.Format("Generation {0:00}, {1:00.000}, {2:00}, {3}", i, oldWinnersRan[i].Item2, oldWinnersRan[i].Item1.PlaySnake((15, 15), false, 0), oldWinnersRan[i].Item3));
+                //listBox1.Items.Add(String.Format("Generation {0:00}, {1:00.000}, {2:00}, {3}", i, oldWinnersRan[i].Item2, oldWinnersRan[i].Item1.PlaySnake((15, 15), false, 0), oldWinnersRan[i].Item3));
             }
             for (var i = listBox2.Items.Count; i < oldWinnersZero.Count; i++) {
                 listBox2.Items.Add(String.Format("Generation {0:00}, {1:00.000}, {2:00}, {3}", i, oldWinnersZero[i].Item2, oldWinnersZero[i].Item1.PlaySnake((15, 15), false, 0), oldWinnersZero[i].Item3));
             }
             for (var i = listBox3.Items.Count; i < oldWinnersMan.Count; i++) {
-                listBox3.Items.Add(String.Format("Generation {0:00}, {1:00.000}, {2:00}, {3}", i, oldWinnersMan[i].Item2, oldWinnersMan[i].Item1.PlaySnake((15, 15), false, 0), oldWinnersMan[i].Item3));
+                //listBox3.Items.Add(String.Format("Generation {0:00}, {1:00.000}, {2:00}, {3}", i, oldWinnersMan[i].Item2, oldWinnersMan[i].Item1.PlaySnake((15, 15), false, 0), oldWinnersMan[i].Item3));
             }
         }
 
@@ -112,7 +112,7 @@ namespace NewSnake_GUI {
 
         private void timer2_Tick (object sender, EventArgs e) {
             if (runningAGame) {
-                runningAGame = currentlyShowing.PlayRoundOfSnake(ref game, ref dir) == 2;
+                runningAGame = currentlyShowing.PlayRoundOfSnakeFullView(ref game, ref dir) == 2;
                 pictureBox1.Image = Render.Game(pictureBox1.Width, pictureBox1.Height, game);
             }
         }

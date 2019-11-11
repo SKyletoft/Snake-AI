@@ -152,7 +152,7 @@ namespace NewSnake {
                 if (draw) {
                     game.DrawToConsole(false);
                 }
-                res = PlayRoundOfSnake(ref game, ref dir);
+                res = PlayRoundOfSnakeFullView(ref game, ref dir);
             } while (res == 2);
             return game.Score * res;
         }
@@ -181,6 +181,27 @@ namespace NewSnake {
                 (Array.IndexOf(tail, leftCoords) != -1 || leftCoords.x > game.Size.width || leftCoords.x < 0 || leftCoords.y > game.Size.height || leftCoords.y < 0) ? 1 : 0,
                 (Array.IndexOf(tail, rightCoords) != -1 || rightCoords.x > game.Size.width || rightCoords.x < 0 || rightCoords.y > game.Size.height || rightCoords.y < 0) ? 1 : 0
             }) - 1;
+            dir += turn;
+            return game.PlayTurn(Direction.DirectionFromIndex(dir));
+        }
+        public int PlayRoundOfSnakeFullView (ref Game game, ref int dir) {
+            var tail = game.Tail;
+            var currentDirection = 4 - Direction.GetDirection((game.Head.x - tail[tail.Length - 1].x, game.Head.y - tail[tail.Length - 1].y));
+            var appleDiff = (x: (game.Head.x - game.Apple.x), y: (game.Head.y - game.Apple.y));
+            appleDiff = Direction.TransformDirection(appleDiff, currentDirection);
+            var headDiff = Direction.TransformDirection((game.Head.x, game.Head.y), currentDirection);
+            var inputs = new List<double> {
+                appleDiff.x,
+                appleDiff.y,
+                headDiff.x,
+                headDiff.y
+            };
+            for (var i = 0; i < game.Size.width * 2; i++) {
+                for (var j = 0; j < game.Size.height * 2; j++) {
+                    inputs.Add(Array.IndexOf(tail, (i - headDiff.x, j - headDiff.y)));
+                }
+            }
+            var turn = Evaluate(inputs.ToArray()) - 1;
             dir += turn;
             return game.PlayTurn(Direction.DirectionFromIndex(dir));
         }
@@ -239,7 +260,9 @@ namespace NewSnake {
             scores[0] = thisScore;
             var options = new ParallelOptions();
             options.MaxDegreeOfParallelism = System.Environment.ProcessorCount - 1;
+            var perThread = newGen.Length / options.MaxDegreeOfParallelism;
             Parallel.For(1, newGen.Length, options, (i) => {
+                var completion = (i % perThread) / (double) perThread;
                 //for (var i = 1; i < newGen.Length - 1; i++) {
                 var draw = false;
                 if (i == 0 && flag) {

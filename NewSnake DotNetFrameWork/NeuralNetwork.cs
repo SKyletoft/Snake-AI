@@ -163,23 +163,23 @@ namespace NewSnake {
             appleDiff = Direction.TransformDirection(appleDiff, 4 - currentDirection);
 
             var frontCoords = (
-                game.Head.x + Direction.DirectionFromIndex(currentDirection).x,
-                game.Head.y + Direction.DirectionFromIndex(currentDirection).y
+                x: game.Head.x + Direction.DirectionFromIndex(currentDirection).x,
+                y: game.Head.y + Direction.DirectionFromIndex(currentDirection).y
             );
             var rightCoords = (
-                game.Head.x + Direction.DirectionFromIndex(currentDirection + 1).x,
-                game.Head.y + Direction.DirectionFromIndex(currentDirection + 1).y
+                x: game.Head.x + Direction.DirectionFromIndex(currentDirection + 1).x,
+                y: game.Head.y + Direction.DirectionFromIndex(currentDirection + 1).y
             );
             var leftCoords = (
-                game.Head.x + Direction.DirectionFromIndex(currentDirection - 1).x,
-                game.Head.y + Direction.DirectionFromIndex(currentDirection - 1).y
+                x: game.Head.x + Direction.DirectionFromIndex(currentDirection - 1).x,
+                y: game.Head.y + Direction.DirectionFromIndex(currentDirection - 1).y
             );
             var turn = Evaluate(new double[] {
                 appleDiff.x,
                 appleDiff.y,
-                Array.IndexOf(tail, frontCoords) != -1 ? 1 : 0,
-                Array.IndexOf(tail, leftCoords) != -1 ? 1 : 0,
-                Array.IndexOf(tail, rightCoords) != -1 ? 1 : 0
+                (Array.IndexOf(tail, frontCoords) != -1 || frontCoords.x > game.Size.width || frontCoords.x < 0 || frontCoords.y > game.Size.height || frontCoords.y < 0) ? 1 : 0,
+                (Array.IndexOf(tail, leftCoords) != -1 || leftCoords.x > game.Size.width || leftCoords.x < 0 || leftCoords.y > game.Size.height || leftCoords.y < 0) ? 1 : 0,
+                (Array.IndexOf(tail, rightCoords) != -1 || rightCoords.x > game.Size.width || rightCoords.x < 0 || rightCoords.y > game.Size.height || rightCoords.y < 0) ? 1 : 0
             }) - 1;
             dir += turn;
             return game.PlayTurn(Direction.DirectionFromIndex(dir));

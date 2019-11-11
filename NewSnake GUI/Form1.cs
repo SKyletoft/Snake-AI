@@ -119,14 +119,17 @@ namespace NewSnake_GUI {
 
         private void button3_Click (object sender, EventArgs e) {
             workerThread3.Abort();
+            button3.Enabled = false;
         }
 
         private void button2_Click (object sender, EventArgs e) {
             workerThread2.Abort();
+            button2.Enabled = false;
         }
 
         private void button1_Click (object sender, EventArgs e) {
             workerThread1.Abort();
+            button1.Enabled = false;
         }
     }
 }

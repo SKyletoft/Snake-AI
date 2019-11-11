@@ -11,3 +11,5 @@ E:\Code\GIT\Snake-AI\NewSnake GUI\bin\Debug\NewSnake.exe
 E:\Code\GIT\Snake-AI\NewSnake GUI\bin\Debug\NewSnake.pdb
 E:\Code\GIT\Snake-AI\NewSnake GUI\bin\Debug\NewSnake.exe.config
 E:\Code\GIT\Snake-AI\NewSnake GUI\obj\Debug\NewSnake GUI.csproj.CopyComplete
+C:\Users\skyle\source\repos\Snake-AI\NewSnake GUI\obj\Debug\NewSnake GUI.exe
+C:\Users\skyle\source\repos\Snake-AI\NewSnake GUI\obj\Debug\NewSnake GUI.pdb

@@ -3,3 +3,9 @@ E:\Code\GIT\Snake-AI\NewSnake DotNetFrameWork\bin\x64\Release\NewSnake.exe
 E:\Code\GIT\Snake-AI\NewSnake DotNetFrameWork\bin\x64\Release\NewSnake.pdb
 E:\Code\GIT\Snake-AI\NewSnake DotNetFrameWork\obj\x64\Release\NewSnake.exe
 E:\Code\GIT\Snake-AI\NewSnake DotNetFrameWork\obj\x64\Release\NewSnake.pdb
+C:\Users\skyle\source\repos\Snake-AI\NewSnake DotNetFrameWork\obj\x64\Release\NewSnake DotNetFrameWork.csprojAssemblyReference.cache
+C:\Users\skyle\source\repos\Snake-AI\NewSnake DotNetFrameWork\obj\x64\Release\NewSnake.exe
+C:\Users\skyle\source\repos\Snake-AI\NewSnake DotNetFrameWork\obj\x64\Release\NewSnake.pdb
+C:\Users\skyle\source\repos\Snake-AI\NewSnake DotNetFrameWork\bin\x64\Release\NewSnake.exe.config
+C:\Users\skyle\source\repos\Snake-AI\NewSnake DotNetFrameWork\bin\x64\Release\NewSnake.exe
+C:\Users\skyle\source\repos\Snake-AI\NewSnake DotNetFrameWork\bin\x64\Release\NewSnake.pdb

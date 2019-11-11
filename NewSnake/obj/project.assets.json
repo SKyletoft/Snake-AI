@@ -8,27 +8,20 @@
     ".NETCoreApp,Version=v3.0": []
   },
   "packageFolders": {
-    "C:\\Users\\skyle\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\skyle\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Code\\GIT\\Snake-AI\\NewSnake\\NewSnake DotNetCore.csproj",
+      "projectUniqueName": "C:\\Users\\skyle\\source\\repos\\Snake-AI\\NewSnake\\NewSnake DotNetCore.csproj",
       "projectName": "NewSnake DotNetCore",
-      "projectPath": "E:\\Code\\GIT\\Snake-AI\\NewSnake\\NewSnake DotNetCore.csproj",
+      "projectPath": "C:\\Users\\skyle\\source\\repos\\Snake-AI\\NewSnake\\NewSnake DotNetCore.csproj",
       "packagesPath": "C:\\Users\\skyle\\.nuget\\packages\\",
-      "outputPath": "E:\\Code\\GIT\\Snake-AI\\NewSnake\\obj\\",
+      "outputPath": "C:\\Users\\skyle\\source\\repos\\Snake-AI\\NewSnake\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
         "C:\\Users\\skyle\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"

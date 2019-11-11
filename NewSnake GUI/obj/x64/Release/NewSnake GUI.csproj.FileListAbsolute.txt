@@ -15,3 +15,20 @@ E:\Code\GIT\Snake-AI\NewSnake GUI\bin\x64\Release\NewSnake GUI.exe.manifest
 E:\Code\GIT\Snake-AI\NewSnake GUI\bin\x64\Release\NewSnake GUI.application
 E:\Code\GIT\Snake-AI\NewSnake GUI\obj\x64\Release\NewSnake GUI.exe.manifest
 E:\Code\GIT\Snake-AI\NewSnake GUI\obj\x64\Release\NewSnake GUI.application
+C:\Users\skyle\source\repos\Snake-AI\NewSnake GUI\bin\x64\Release\NewSnake GUI.exe.config
+C:\Users\skyle\source\repos\Snake-AI\NewSnake GUI\bin\x64\Release\NewSnake GUI.exe.manifest
+C:\Users\skyle\source\repos\Snake-AI\NewSnake GUI\bin\x64\Release\NewSnake GUI.application
+C:\Users\skyle\source\repos\Snake-AI\NewSnake GUI\bin\x64\Release\NewSnake GUI.exe
+C:\Users\skyle\source\repos\Snake-AI\NewSnake GUI\bin\x64\Release\NewSnake GUI.pdb
+C:\Users\skyle\source\repos\Snake-AI\NewSnake GUI\bin\x64\Release\NewSnake.exe
+C:\Users\skyle\source\repos\Snake-AI\NewSnake GUI\bin\x64\Release\NewSnake.pdb
+C:\Users\skyle\source\repos\Snake-AI\NewSnake GUI\bin\x64\Release\NewSnake.exe.config
+C:\Users\skyle\source\repos\Snake-AI\NewSnake GUI\obj\x64\Release\NewSnake GUI.csprojAssemblyReference.cache
+C:\Users\skyle\source\repos\Snake-AI\NewSnake GUI\obj\x64\Release\NewSnake_GUI.Form1.resources
+C:\Users\skyle\source\repos\Snake-AI\NewSnake GUI\obj\x64\Release\NewSnake_GUI.Properties.Resources.resources
+C:\Users\skyle\source\repos\Snake-AI\NewSnake GUI\obj\x64\Release\NewSnake GUI.csproj.GenerateResource.cache
+C:\Users\skyle\source\repos\Snake-AI\NewSnake GUI\obj\x64\Release\NewSnake GUI.exe.manifest
+C:\Users\skyle\source\repos\Snake-AI\NewSnake GUI\obj\x64\Release\NewSnake GUI.application
+C:\Users\skyle\source\repos\Snake-AI\NewSnake GUI\obj\x64\Release\NewSnake GUI.csproj.CopyComplete
+C:\Users\skyle\source\repos\Snake-AI\NewSnake GUI\obj\x64\Release\NewSnake GUI.exe
+C:\Users\skyle\source\repos\Snake-AI\NewSnake GUI\obj\x64\Release\NewSnake GUI.pdb

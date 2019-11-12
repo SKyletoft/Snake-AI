@@ -263,6 +263,48 @@ namespace NewSnake {
             return sum;
         }
 
+        public static (NeuralNetwork, double)[] NextGeneration (NeuralNetwork[] parents, (int width, int height) boardSize, int generationSize, double randomness, double changeRate, int gen) {
+            var newGen = new NeuralNetwork[generationSize];
+            var scores = new double[generationSize];
+            var games = 1000;
+            for (var i = 0; i < parents.Length; i++) {
+                var thisScore = 0.0;
+                for (var j = 0; j < games; j++) {
+                    thisScore += parents[i].PlaySnake(boardSize, false, j);
+                }
+                thisScore /= games;
+                newGen[i] = parents[i];
+                scores[i] = thisScore;
+            }
+            var options = new ParallelOptions();
+            options.MaxDegreeOfParallelism = System.Environment.ProcessorCount - 1;
+            var perThread = newGen.Length / options.MaxDegreeOfParallelism;
+            Parallel.For(1, newGen.Length, options, (i) => {
+                var completion = (i % perThread) / (double) perThread;
+                //for (var i = 1; i < newGen.Length - 1; i++) {
+                var draw = false;
+                if (i == 0 && flag) {
+                    draw = true;
+                }
+                newGen[i] = parents[i % parents.Length].GenerateKid(randomness, changeRate);
+                var scoreSum = 0.0;
+                for (var j = 0; j < games; j++) {
+                    scoreSum += newGen[i].PlaySnake(boardSize, draw, j);
+                }
+                scores[i] = scoreSum / games;
+            });
+            //}
+            var bestScore = 0.0;
+            var bestIndex = -1;
+            for (var i = 0; i < scores.Length; i++) {
+                if (scores[i] > bestScore) {
+                    bestScore = scores[i];
+                    bestIndex = i;
+                }
+            }
+            //Console.Title = String.Format("Generation {0}; Best score: {1}", gen, bestScore);
+            return (newGen[bestIndex], bestScore);
+        }
         public (NeuralNetwork, double) NextGeneration ((int width, int height) boardSize, int generationSize, double randomness, double changeRate, int gen) {
             var newGen = new NeuralNetwork[generationSize];
             var scores = new double[generationSize];

@@ -196,10 +196,26 @@ namespace NewSnake {
                 headDiff.x,
                 headDiff.y
             };
+            Console.Clear();
             for (var i = 0; i < game.Size.width * 2; i++) {
                 for (var j = 0; j < game.Size.height * 2; j++) {
-                    inputs.Add(Array.IndexOf(tail, (i - headDiff.x, j - headDiff.y)));
+                    var pos = (
+                        0,
+                        0
+                    );
+                    var val = Array.IndexOf(tail, pos);
+                    inputs.Add(val);
+                    if (val == -1) {
+                        Console.ForegroundColor = ConsoleColor.White;
+                    } else {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                    }
+                    if (pos == game.Head) {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    Console.Write('█');
                 }
+                Console.WriteLine();
             }
             var turn = Evaluate(inputs.ToArray()) - 1;
             dir += turn;

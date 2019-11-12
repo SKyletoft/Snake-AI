@@ -6,8 +6,8 @@ namespace NewSnake {
             Console.CursorVisible = false;
             Console.Clear();
 
-            //var lastWinner = NeuralNetwork.NewToZero(new[] { 4, 25, 3 });
-            var lastWinner = NeuralNetwork.NewFromManual();
+            var lastWinner = NeuralNetwork.NewToZero(new[] { 904, 3 });
+            //var lastWinner = NeuralNetwork.NewFromManual();
             var generation = 0;
 
             while (true) {

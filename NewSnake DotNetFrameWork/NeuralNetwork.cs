@@ -315,9 +315,6 @@ namespace NewSnake {
             if (left.weights.Length != right.weights.Length) {
                 return false;
             }
-            for (var i = 0; i < left.weights.Length; i++) {
-
-            }
             for (var i = 1; i < left.weights.Length; i++) {
                 if (left.weights[i].Length != right.weights[i].Length) {
                     return false;

@@ -196,6 +196,7 @@ namespace NewSnake {
                 headDiff.x,
                 headDiff.y
             };
+            /*
             Console.Clear();
             for (var i = 0; i < game.Size.width * 2; i++) {
                 for (var j = 0; j < game.Size.height * 2; j++) {
@@ -217,6 +218,7 @@ namespace NewSnake {
                 }
                 Console.WriteLine();
             }
+            */
             var turn = Evaluate(inputs.ToArray()) - 1;
             dir += turn;
             return game.PlayTurn(Direction.DirectionFromIndex(dir));
@@ -294,16 +296,27 @@ namespace NewSnake {
                 scores[i] = scoreSum / games;
             });
             //}
-            var bestScore = 0.0;
-            var bestIndex = -1;
-            for (var i = 0; i < scores.Length; i++) {
-                if (scores[i] > bestScore) {
-                    bestScore = scores[i];
-                    bestIndex = i;
+            var bestPerformers = new int[parents.Length + 1];
+            for (var i = 0; i < newGen.Length; i++) {
+                bestPerformers[parents.Length] = i; //IS THIS ADDING IN THE TOP OR BOTTOM SPOT? SHOULD THE INDEX BE 0?
+                for (var x = 1; x < bestPerformers.Length; x++) {
+                    for (var y = x; y > 0; y--) {
+                        if (scores[bestPerformers[y]] > scores[bestPerformers[y - 1]]) {
+                            var tmp = bestPerformers[y];
+                            bestPerformers[y] = bestPerformers[y - 1];
+                            bestPerformers[y - 1] = tmp;
+                        } else {
+                            break;
+                        }
+                    }
                 }
             }
+            var toReturn = new (NeuralNetwork, double)[parents.Length];
+            for (var i = 0; i < bestPerformers.Length - 1; i++) {
+                toReturn[i] = (newGen[bestPerformers[i]], scores[bestPerformers[i]]);
+            }
             //Console.Title = String.Format("Generation {0}; Best score: {1}", gen, bestScore);
-            return (newGen[bestIndex], bestScore);
+            return toReturn;
         }
         public (NeuralNetwork, double) NextGeneration ((int width, int height) boardSize, int generationSize, double randomness, double changeRate, int gen) {
             var newGen = new NeuralNetwork[generationSize];

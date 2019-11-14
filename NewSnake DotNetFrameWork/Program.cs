@@ -6,7 +6,14 @@ namespace NewSnake {
             Console.CursorVisible = false;
             Console.Clear();
 
-            var lastWinner = NeuralNetwork.NewToZero(new[] { 904, 3 });
+            var lastWinnerArray = new[] {
+                NeuralNetwork.NewToZero(new[] { 904, 3 }),
+                NeuralNetwork.NewToZero(new[] { 904, 3 }),
+                NeuralNetwork.NewToZero(new[] { 904, 3 }),
+                NeuralNetwork.NewToZero(new[] { 904, 3 }),
+                NeuralNetwork.NewToZero(new[] { 904, 3 })
+            };
+            var lastWinner = NeuralNetwork.NewToZero(new[] { 904, 4 });
             //var lastWinner = NeuralNetwork.NewFromManual();
             var generation = 0;
 

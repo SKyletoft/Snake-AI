@@ -196,14 +196,17 @@ namespace NewSnake {
                 headDiff.x,
                 headDiff.y
             };
-            /*
+            
             Console.Clear();
             for (var i = 0; i < game.Size.width * 2; i++) {
                 for (var j = 0; j < game.Size.height * 2; j++) {
                     var pos = (
-                        0,
-                        0
+                        x: i + game.Head.x,
+                        y: j + game.Head.y
                     );
+                    pos = Direction.TransformDirection(pos, currentDirection);
+                    pos.x -= game.Size.width;
+                    pos.y -= game.Size.height;
                     var val = Array.IndexOf(tail, pos);
                     inputs.Add(val);
                     if (val == -1) {
@@ -218,7 +221,7 @@ namespace NewSnake {
                 }
                 Console.WriteLine();
             }
-            */
+            
             var turn = Evaluate(inputs.ToArray()) - 1;
             dir += turn;
             return game.PlayTurn(Direction.DirectionFromIndex(dir));
@@ -265,7 +268,7 @@ namespace NewSnake {
             return sum;
         }
 
-        public static (NeuralNetwork, double)[] NextGeneration (NeuralNetwork[] parents, (int width, int height) boardSize, int generationSize, double randomness, double changeRate, int gen) {
+        public static (NeuralNetwork[], double[]) NextGeneration (NeuralNetwork[] parents, (int width, int height) boardSize, int generationSize, double randomness, double changeRate, int gen) {
             var newGen = new NeuralNetwork[generationSize];
             var scores = new double[generationSize];
             var games = 1000;
@@ -311,9 +314,10 @@ namespace NewSnake {
                     }
                 }
             }
-            var toReturn = new (NeuralNetwork, double)[parents.Length];
+            var toReturn = (networks: new NeuralNetwork[parents.Length], scores: new double[parents.Length]);
             for (var i = 0; i < bestPerformers.Length - 1; i++) {
-                toReturn[i] = (newGen[bestPerformers[i]], scores[bestPerformers[i]]);
+                toReturn.networks[i] = newGen[bestPerformers[i]];
+                toReturn.scores[i] = scores[bestPerformers[i]];
             }
             //Console.Title = String.Format("Generation {0}; Best score: {1}", gen, bestScore);
             return toReturn;

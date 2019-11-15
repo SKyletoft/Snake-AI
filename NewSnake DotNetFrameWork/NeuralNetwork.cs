@@ -152,7 +152,7 @@ namespace NewSnake {
                 if (draw) {
                     game.DrawToConsole(false);
                 }
-                res = PlayRoundOfSnakeFullView(ref game, ref dir);
+                res = PlayRoundOfSnake(ref game, ref dir);
             } while (res == 2);
             return game.Score * res;
         }
@@ -197,31 +197,39 @@ namespace NewSnake {
                 headDiff.y
             };
             
-            Console.Clear();
+            var originalGrid = new int[game.Size.width * 2, game.Size.height * 2];
+            var transformedGrid = new int[game.Size.width * 2, game.Size.height * 2];
             for (var i = 0; i < game.Size.width * 2; i++) {
                 for (var j = 0; j < game.Size.height * 2; j++) {
-                    var pos = (
-                        x: i + game.Head.x,
-                        y: j + game.Head.y
-                    );
-                    pos = Direction.TransformDirection(pos, currentDirection);
-                    pos.x -= game.Size.width;
-                    pos.y -= game.Size.height;
-                    var val = Array.IndexOf(tail, pos);
-                    inputs.Add(val);
-                    if (val == -1) {
-                        Console.ForegroundColor = ConsoleColor.White;
-                    } else {
-                        Console.ForegroundColor = ConsoleColor.Green;
-                    }
-                    if (pos == game.Head) {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                    }
-                    Console.Write('█');
+                    var val = Array.IndexOf(tail, (i - 7, j - 7));
+                    originalGrid[i, j] = val;
                 }
-                Console.WriteLine();
+            }
+            for (var i = 0; i < game.Size.width * 2; i++) {
+                for (var j = 0; j < game.Size.height * 2; j++) {
+                    switch (currentDirection % 4) {
+                        case 0:
+                            transformedGrid[i, j] = originalGrid[i, j];
+                            break;
+                        case 1:
+                            transformedGrid[i, j] = originalGrid[j, game.Size.width * 2 - 1 - i];
+                            break;
+                        case 2:
+                            transformedGrid[i, j] = originalGrid[game.Size.width * 2 -1-i, game.Size.height * 2 -1- j];
+                            break;
+                        case 3:
+                            transformedGrid[i, j] = originalGrid[game.Size.height * 2 -1- j, i];
+                            break;
+                    }
+                }
             }
             
+            for (var i = 0; i < 30; i++) {
+                for (var j = 0; j < 30; j++) {
+                    inputs.Add(transformedGrid[i, j]);
+                }
+            }
+
             var turn = Evaluate(inputs.ToArray()) - 1;
             dir += turn;
             return game.PlayTurn(Direction.DirectionFromIndex(dir));
@@ -325,7 +333,7 @@ namespace NewSnake {
         public (NeuralNetwork, double) NextGeneration ((int width, int height) boardSize, int generationSize, double randomness, double changeRate, int gen) {
             var newGen = new NeuralNetwork[generationSize];
             var scores = new double[generationSize];
-            var games = 1000;
+            var games = 100;
             var thisScore = 0.0;
             for (var j = 0; j < games; j++) {
                 thisScore += PlaySnake(boardSize, false, j);

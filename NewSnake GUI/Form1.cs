@@ -27,7 +27,7 @@ namespace NewSnake_GUI {
             InitializeComponent();
             //lastWinner.CentreNetwork();
             oldWinnersRan.Add((NeuralNetwork.NewToRandom(new[] { 904, 3}), 0, new TimeSpan(0,0,0)));
-            oldWinnersZero.Add((NeuralNetwork.NewToZero(new[] { 904, 3}), 0, new TimeSpan(0, 0, 0)));
+            oldWinnersZero.Add((NeuralNetwork.NewToZero(new[] { 5, 3}), 0, new TimeSpan(0, 0, 0)));
             oldWinnersMan.Add((NeuralNetwork.NewFromManual(), 0, new TimeSpan(0, 0, 0)));
             
             workerThread1 = new Thread(w1);
@@ -112,7 +112,7 @@ namespace NewSnake_GUI {
 
         private void timer2_Tick (object sender, EventArgs e) {
             if (runningAGame) {
-                runningAGame = currentlyShowing.PlayRoundOfSnakeFullView(ref game, ref dir) == 2;
+                runningAGame = currentlyShowing.PlayRoundOfSnake(ref game, ref dir) == 2;
                 pictureBox1.Image = Render.Game(pictureBox1.Width, pictureBox1.Height, game);
             }
         }
